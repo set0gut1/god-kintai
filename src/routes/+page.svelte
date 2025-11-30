@@ -81,20 +81,20 @@
       <div class="mt-10 flex justify-center gap-5">
         {#if currentState === 'notyet'}
           <button
-            class="w-30 h-15 text-xl text-white bg-blue-500 hover:bg-blue-700 active:bg-blue-500 transition rounded-sm"
+            class="w-30 h-15 text-xl text-white bg-blue-500 hover:bg-blue-700 active:bg-blue-500 transition rounded-sm cursor-pointer"
             onclick={toWorking}
           >
             出勤
           </button>
         {:else if currentState === 'working'}
           <button
-            class="w-30 h-15 text-xl text-white bg-red-500 hover:bg-red-700 active:bg-red-500 transition rounded-sm"
+            class="w-30 h-15 text-xl text-white bg-red-500 hover:bg-red-700 active:bg-red-500 transition rounded-sm cursor-pointer"
             onclick={toNotyet}
           >
             退勤
           </button>
           <button
-            class="w-30 h-15 text-xl border bg-white hover:bg-gray-100 active:bg-white transition rounded-sm"
+            class="w-30 h-15 text-xl border bg-white hover:bg-gray-100 active:bg-white transition rounded-sm cursor-pointer"
             onclick={toResting}
           >
             休憩開始
@@ -104,17 +104,23 @@
             退勤
           </button>
           <button
-            class="w-30 h-15 text-xl border bg-white hover:bg-gray-100 active:bg-white transition rounded-sm"
+            class="w-30 h-15 text-xl border bg-white hover:bg-gray-100 active:bg-white transition rounded-sm cursor-pointer"
             onclick={toWorking}
           >
             休憩終了
           </button>
         {/if}
       </div>
-      <p class="mt-10 text-gray-500">勤怠修正　各種申請　メモ</p>
+      <p class="mt-10 text-gray-500">
+        <a href="#" class="hover:text-gray-700 hover:underline transition">勤怠修正</a>
+        /
+        <a href="#" class="hover:text-gray-700 hover:underline transition">各種申請</a>
+        /
+        <a href="#" class="hover:text-gray-700 hover:underline transition">メモ</a>
+      </p>
     </div>
     <div class="border-l p-5 h-100 overflow-scroll" bind:this={commentArea}>
-      {#each comments as { text, type }}
+      {#each comments as { text, type }, index (index)}
         <p class={`border-b border-gray-400 ${type === 'system' ? 'text-blue-500' : ''}`}>
           {text}
         </p>

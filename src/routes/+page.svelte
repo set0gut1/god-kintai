@@ -70,8 +70,8 @@
 </script>
 
 <div class="p-20">
-  <div class="border rounded-lg grid grid-cols-3 max-w-200">
-    <div class="col-span-2 text-center py-5">
+  <div class="border rounded-lg grid grid-cols-2 max-w-200">
+    <div class="pb-10 flex flex-col items-center justify-center">
       <p>
         {currentTime.format('YYYY年MM月DD日')}
       </p>
